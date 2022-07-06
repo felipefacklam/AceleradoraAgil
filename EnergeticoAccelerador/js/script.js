@@ -13,11 +13,12 @@ class Pedido {
 
     salvar(){
         let pedido = this.lerDados()
-        this.adicionar(pedido)
-        // if(this.validaCampos(pedido)==true){
-        // }
+        if(this.validaCampos(pedido)==true){
+            this.adicionar(pedido)
+        }
         this.listaTabela()
         this.cancelar()
+        document.querySelector('#cliente').focus()
     }
 
     listaTabela(){
@@ -48,7 +49,7 @@ class Pedido {
             tdTotal.innerText = `R$${this.arrayPedidos[i].total.toFixed(2)}`
             tdDelete.appendChild(imgDelete)
         }
-        
+
     }
     
     adicionar(pedido){
@@ -68,7 +69,6 @@ class Pedido {
         pedido.pis = (pedido.totalMercadoria *pisPerc)
         pedido.cofins = (pedido.totalMercadoria * cofinsPerc)
         pedido.total = pedido.totalMercadoria + pedido.icms + pedido.ipi + pedido.pis + pedido.cofins
-        pedido.totalGeral += pedido.total
 
         return pedido
     }
@@ -87,12 +87,18 @@ class Pedido {
     }
 
     deletar(id){
+        let tbody = document.querySelector('#tbody')
+
         for(let i=0; i<this.arrayPedidos.length; i++){
             if(this.arrayPedidos[i].id == id){
                 this.arrayPedidos.splice(i, 1)
+                tbody.deleteRow(i)
             }
         }
     }
 }
 
 var pedido = new Pedido()
+window.onload = function (){
+    document.querySelector('#cliente').focus()
+}

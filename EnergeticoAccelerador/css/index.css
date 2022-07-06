@@ -3,12 +3,11 @@
 :root {
     --color1: #F7F4F3;
     --color2: black;
-    --color3: #4B8F8C;
-    --color4: #564D4A;
-    --color5: #2e7df6;
-    --color6: hsl(216, 92%, 30%);
+    --color3: #344966;
+    --color4: #2A0800;
+    --color5: #4ECDC4;
+    --color6: #35908a;
     --color7: #f1f2ee86;
-    --color8: #8789C0;
 }
 * {
   margin: 0;
@@ -30,11 +29,12 @@ p {
 table {
   border-collapse: collapse;
   border: 1px solid var(--color4);
-  min-width: 80vh;
-  max-width: 80vh;
+  /* min-width: 80vh;
+  max-width: 80vh; */
 }
-table th, tfoot {
+table th {
   background-color: var(--color4);
+  border: 1px solid var(--color1);
   color: var(--color1);
 }
 table th, td {
@@ -42,8 +42,9 @@ table th, td {
   padding: 1px 5px;
 }
 table td img {
-  width: 20px;
+  width: 15px;
   text-align: center;
+  margin-top: 5px;
 }
 /*------------------------------------BODY------------------------------------*/
 body {
