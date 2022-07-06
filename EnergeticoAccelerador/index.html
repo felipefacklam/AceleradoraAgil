@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="imgs/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="styles/index.css">
+    <link rel="shortcut icon" href="imgs/lighting.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/script.js"></script>
     <title>Energéticos Aceleradora</title>
 </head>
 
 <body>
-    <header id="teste">
-        <img src="imgs/icon.png" alt="" id="logo">
+    <header>
+        <img src="imgs/lighting.png" alt="" id="logo">
         <h1>Energéticos Accelerator</h1>
     </header>
     <nav>
@@ -20,8 +21,6 @@
             <li><a href=”#” class="btn">Link1</a></li>
             <li><a href=”#” class="btn">Link2</a></li>
             <li><a href=”#” class="btn">Link3</a></li>
-            <li><a href=”#” class="btn">Link4</a></li>
-            <li><a href=”#” class="btn">Link5</a></li>
         </ul>
     </nav>
     <section>
@@ -30,21 +29,40 @@
         <h2>Calculadora de impostos</h2>
         <form onsubmit="return false">
             <label>Nome da Empresa</label>
-            <input type="text"name="nome" id="cliente" placeholder="Insira o nome do cliente">
+            <input type="text" id="cliente" placeholder="Insira o nome do cliente">
 
-            <label for="email">Quantidade comprada</label>
-            <input type="number" name="email" id="qtdComp" placeholder="Insira a quantidade comprada">
+            <label>Quantidade comprada</label>
+            <input type="number" id="qtd" placeholder="Insira a quantidade comprada">
 
-            <div><button id="btnCalcular">Calcular</button></div>
+            <div id="btn">
+                <button id="addPedido" class="btn" onclick="pedido.salvar()">Salvar</button>
+                <button id="excluirPedido" class="btn" onclick="pedido.cancelar()">Calcelar</button>
+            </div>
         </form>
-        <div id="divResult"></div>
+
+        <div class="content">
+            <h3>Tabela de valores</h3>
+            <table border="1">
+                <thead>
+                    <!-- <th>ID</th> -->
+                    <th>Cliente</th>
+                    <th>ICMS</th>
+                    <th>IPI</th>
+                    <th>PIS</th>
+                    <th>COFINS</th>
+                    <th>Total</th>
+                    <th class="center">-</th>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
         </main>
     <aside>
     </aside>
     <footer>
         <p>...rodape...</p>
     </footer>
-    <script src="/js/app.js"></script>
 </body>
 
 </html>
